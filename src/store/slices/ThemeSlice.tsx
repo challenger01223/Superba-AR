@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { models, clothes } from "utils/data";
 
 interface IinitialState {
   collapsed: boolean;

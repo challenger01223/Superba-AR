@@ -46,7 +46,7 @@ const CreateAgentHeader = () => {
       />
       <Flex style={{ width: 150 }} align="center" justify="flex-end">
         <Button
-          onClick={() => navigate("/agents")}
+          // onClick={() => navigate("/agents")}
           shape="circle"
           icon={<CloseOutlined />}
           size="large"

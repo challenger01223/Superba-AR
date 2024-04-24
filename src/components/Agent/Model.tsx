@@ -13,7 +13,7 @@ import {
 } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { UploadOutlined } from "@ant-design/icons";
-import CardContainer from "components/CardContainer";
+import CardContainer from "components/Agent/CardContainer";
 import { RootState } from "store";
 import { setModels } from "store/slices/AgentSlice";
 
