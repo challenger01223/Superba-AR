@@ -63,7 +63,7 @@ const Conversation = () => {
         </div>
       </Flex>
       <Input
-        style={{ marginTop: 10 }}
+        style={{ marginTop: 20 }}
         size="large"
         autoComplete="off"
         placeholder="Type a message..."

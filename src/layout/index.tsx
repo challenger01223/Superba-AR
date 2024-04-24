@@ -8,6 +8,7 @@ import {
 } from "@ant-design/icons";
 import { RootState } from "store";
 import { setCollapsed } from "store/slices/ThemeSlice";
+import { setStep } from "store/slices/AgentSlice";
 
 import AppSideBar from "./Sidebar";
 import CreateAgentHeader from "./headers/CreateAgentHeader";
@@ -21,7 +22,7 @@ interface AppLayoutProps {
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { agentTab } = useSelector((state: RootState) => state.agent);
+  const { step } = useSelector((state: RootState) => state.agent);
   const { collapsed } = useSelector((state: RootState) => state.theme);
   const location = useLocation();
 
@@ -68,7 +69,10 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 type="primary"
                 icon={<PlusOutlined />}
                 size="large"
-                onClick={() => navigate("/agents/create")}
+                onClick={() => {
+                //   dispatch(setAgentTab("model"));
+                  navigate("/agents/create");
+                }}
               >
                 Create
               </Button>

@@ -4,8 +4,7 @@ import { Flex } from "antd";
 interface CardContainerProps {
   children: React.ReactNode;
   isSelect?: boolean;
-  index?: number;
-  setItemIndex?: (value: number) => void;
+  setItem?: () => void;
   upload?: () => void;
 }
 
@@ -15,8 +14,7 @@ const hoverBorderStyle = "3px solid rgb(255, 136, 46)";
 const CardContainer: React.FC<CardContainerProps> = ({
   children,
   isSelect,
-  index,
-  setItemIndex,
+  setItem,
   upload,
 }) => {
   const [hover, setHover] = React.useState(false);
@@ -33,8 +31,8 @@ const CardContainer: React.FC<CardContainerProps> = ({
         cursor: "pointer",
       }}
       onClick={() => {
-        if (setItemIndex && index !== undefined) {
-          setItemIndex(index);
+        if (setItem) {
+          setItem();
         }
         if (upload) {
           upload();

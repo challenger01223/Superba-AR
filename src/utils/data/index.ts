@@ -18,8 +18,19 @@ import clothes10 from "assets/images/clothes/clothes10.jpg";
 import clothes11 from "assets/images/clothes/clothes11.jpg";
 import clothes12 from "assets/images/clothes/clothes12.jpg";
 
-export const models = [model1, model2, model3, model4, model5, model6];
+import step1 from "assets/images/step/step1.png";
+import step2 from "assets/images/step/step2.png";
+import step3 from "assets/images/step/step2.png";
+import step4 from "assets/images/step/step4.png";
+import step5 from "assets/images/step/step5.png";
+import step6 from "assets/images/step/step6.png";
+import step7 from "assets/images/step/step7.png";
 
+import background1 from "assets/images/background/background1.jpg";
+import background2 from "assets/images/background/background2.jpg";
+import background3 from "assets/images/background/background3.jpg";
+
+export const models = [model1, model2, model3, model4, model5, model6];
 export const clothes = [
   clothes1,
   clothes2,
@@ -34,3 +45,5 @@ export const clothes = [
   clothes11,
   clothes12,
 ];
+export const steps = [step1, step2, step3, step4, step5, step6, step7];
+export const backgrounds = [background1, background2, background3];

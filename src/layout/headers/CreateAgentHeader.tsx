@@ -1,31 +1,15 @@
 import { useDispatch } from "react-redux";
-import { Flex, Typography, Tabs, Button } from "antd";
-import type { TabsProps } from "antd";
+import { Flex, Typography, Button } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
-import { setAgentTab } from "store/slices/AgentSlice";
+import { setStep } from "store/slices/AgentSlice";
 import { useNavigate } from "react-router-dom";
-
-const items: TabsProps["items"] = [
-  {
-    key: "model",
-    label: "Model",
-  },
-  {
-    key: "clothes",
-    label: "Clothes",
-  },
-];
 
 const CreateAgentHeader = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { agentTab } = useSelector((state: RootState) => state.agent);
-
-  const onChange = (key: string) => {
-    dispatch(setAgentTab(key));
-  };
+  const { step } = useSelector((state: RootState) => state.agent);
 
   return (
     <Flex align="center" justify="space-between" style={{ height: "100%" }}>
@@ -35,15 +19,34 @@ const CreateAgentHeader = () => {
       >
         New agent
       </Typography.Title>
-      <Tabs
-        activeKey={agentTab}
-        items={items}
-        onChange={onChange}
-        size="large"
-        tabBarStyle={{ margin: 0 }}
-        tabBarGutter={40}
-        className="agent-create-step"
-      />
+      <Flex gap={10}>
+        <Button
+          size="large"
+          style={{ width: 150 }}
+          disabled={step === 0}
+          onClick={() => {
+            if (step === 0) {
+            } else {
+              dispatch(setStep(step - 1));
+            }
+          }}
+        >
+          Back
+        </Button>
+        <Button
+          type="primary"
+          size="large"
+          style={{ width: 150 }}
+          onClick={() => {
+            if (step === 6) {
+            } else {
+              dispatch(setStep(step + 1));
+            }
+          }}
+        >
+          Next
+        </Button>
+      </Flex>
       <Flex style={{ width: 150 }} align="center" justify="flex-end">
         <Button
           // onClick={() => navigate("/agents")}
