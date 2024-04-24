@@ -1,6 +1,7 @@
 import { Layout, Image, Flex, Divider, Card } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
+import Conversation from "components/Agent/Conversation";
 
 const { Content } = Layout;
 
@@ -24,9 +25,11 @@ const AgentChat = () => {
         <Card
           style={{
             width: "100%",
-            maxWidth: 600,
+            maxWidth: 700,
           }}
-        ></Card>
+        >
+          <Conversation />
+        </Card>
       </Flex>
     </Content>
   );
