@@ -59,7 +59,7 @@ const Model = () => {
       <Flex justify="center">
         <Image
           style={{ maxWidth: 250 }}
-          src={uploadedModel ? uploadedModel.preview : models[modelIndex]}
+          src={models[modelIndex]}
         />
       </Flex>
       <Divider />

@@ -57,10 +57,7 @@ const Clothes = () => {
   return (
     <React.Fragment>
       <Flex justify="center">
-        <Image
-          style={{ maxWidth: 250 }}
-          src={uploadedClothes ? uploadedClothes.preview : clothes[clothesIndex]}
-        />
+        <Image style={{ maxWidth: 250 }} src={clothes[clothesIndex]} />
       </Flex>
       <Divider />
       <Typography.Title level={3}>
