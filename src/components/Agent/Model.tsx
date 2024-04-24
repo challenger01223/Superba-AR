@@ -1,8 +1,21 @@
 import React from "react";
-import { Flex, Image, Typography, Tabs, Divider, Card, Row, Col } from "antd";
-import { models } from "utils/data";
+import {
+  Flex,
+  Image,
+  Typography,
+  Tabs,
+  Divider,
+  Card,
+  Row,
+  Col,
+  Input,
+  Button,
+} from "antd";
+import { useSelector, useDispatch } from "react-redux";
 import { UploadOutlined } from "@ant-design/icons";
 import CardContainer from "components/CardContainer";
+import { RootState } from "store";
+import { setModels } from "store/slices/AgentSlice";
 
 const items = [
   {
@@ -16,6 +29,8 @@ const items = [
 ];
 
 const Model = () => {
+  const dispatch = useDispatch();
+  const { models } = useSelector((state: RootState) => state.agent);
   const [tab, setTab] = React.useState("choose");
   const [modelIndex, setModelIndex] = React.useState(0);
   const [uploadedModel, setUploadedModel] = React.useState<any>(null);
@@ -28,12 +43,23 @@ const Model = () => {
     }
   };
 
+  const UploadModel = (event: any) => {
+    const { files } = event.target;
+    if (files.length === 0) return;
+    const loadFile = Object.assign(files[0], {
+      preview: URL.createObjectURL(files[0]),
+    });
+    setUploadedModel(loadFile);
+    dispatch(setModels([loadFile.preview, ...models]));
+    setModelIndex(0);
+  };
+
   return (
     <React.Fragment>
       <Flex justify="center">
         <Image
           style={{ maxWidth: 250 }}
-          src={uploadedModel ? uploadedModel : models[modelIndex].image}
+          src={uploadedModel ? uploadedModel.preview : models[modelIndex]}
         />
       </Flex>
       <Divider />
@@ -66,35 +92,36 @@ const Model = () => {
                     accept="image/*"
                     hidden
                     ref={inputFileRef}
+                    onChange={UploadModel}
                   />
                 </Flex>
               </CardContainer>
             </Col>
             {models.map((model, index: number) => (
-              <Col
-                span={6}
-                xs={8}
-                md={4}
-                key={model.key}
-                style={{ padding: 5 }}
-              >
+              <Col span={6} xs={8} md={4} key={index} style={{ padding: 5 }}>
                 <CardContainer
                   index={index}
                   setItemIndex={setModelIndex}
                   isSelect={modelIndex === index}
                 >
-                  <img
-                    src={model.image}
-                    alt="model"
-                    style={{ width: "100%" }}
-                  />
+                  <img src={model} alt="model" style={{ width: "100%" }} />
                 </CardContainer>
               </Col>
             ))}
           </Row>
         </Card>
       ) : (
-        <></>
+        <Card>
+          <Input.TextArea
+            style={{ resize: "none", height: 150, fontSize: 20 }}
+            placeholder="Please input prompt to generate model..."
+          />
+          <Flex justify="flex-end" style={{ marginTop: 15 }}>
+            <Button size="large" type="primary">
+              Generate Model
+            </Button>
+          </Flex>
+        </Card>
       )}
     </React.Fragment>
   );

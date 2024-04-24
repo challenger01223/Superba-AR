@@ -90,7 +90,7 @@ const CreateAgent = () => {
       >
         <Flex justify="flex-end" gap={10}>
           <Button size="large" style={{ width: 150 }}>
-            Cancel
+            Back
           </Button>
           <Button type="primary" size="large" style={{ width: 150 }}>
             Next

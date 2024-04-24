@@ -18,80 +18,19 @@ import clothes10 from "assets/images/clothes/clothes10.jpg";
 import clothes11 from "assets/images/clothes/clothes11.jpg";
 import clothes12 from "assets/images/clothes/clothes12.jpg";
 
-export const models = [
-  {
-    key: 0,
-    image: model1,
-  },
-  {
-    key: 1,
-    image: model2,
-  },
-  {
-    key: 2,
-    image: model3,
-  },
-  {
-    key: 3,
-    image: model4,
-  },
-  {
-    key: 4,
-    image: model5,
-  },
-  {
-    key: 5,
-    image: model6,
-  },
-];
+export const models = [model1, model2, model3, model4, model5, model6];
 
 export const clothes = [
-  {
-    key: 0,
-    image: clothes1,
-  },
-  {
-    key: 1,
-    image: clothes2,
-  },
-  {
-    key: 2,
-    image: clothes3,
-  },
-  {
-    key: 3,
-    image: clothes4,
-  },
-  {
-    key: 4,
-    image: clothes5,
-  },
-  {
-    key: 5,
-    image: clothes6,
-  },
-  {
-    key: 6,
-    image: clothes7,
-  },
-  {
-    key: 7,
-    image: clothes8,
-  },
-  {
-    key: 8,
-    image: clothes9,
-  },
-  {
-    key: 9,
-    image: clothes10,
-  },
-  {
-    key: 10,
-    image: clothes11,
-  },
-  {
-    key: 11,
-    image: clothes12,
-  },
+  clothes1,
+  clothes2,
+  clothes3,
+  clothes4,
+  clothes5,
+  clothes6,
+  clothes7,
+  clothes8,
+  clothes9,
+  clothes10,
+  clothes11,
+  clothes12,
 ];

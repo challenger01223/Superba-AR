@@ -1,21 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { models, clothes } from "utils/data";
 
-interface IinitialState {}
+interface IinitialState {
+  models: Array<string>;
+  clothes: Array<string>;
+}
 
-export const initialState: IinitialState = {};
+export const initialState: IinitialState = {
+  models: models,
+  clothes: clothes,
+};
 
 export const AgentSlice = createSlice({
   name: "agent",
   initialState,
   reducers: {
-    // showAuthMessage: (state, action) => {
-    //   state.message = action.payload;
-    //   state.showMessage = true;
-    //   state.loading = false;
-    // },
+    setModels: (state, action) => {
+      state.models = action.payload;
+    },
+    setClothes: (state, action) => {
+      state.clothes = action.payload;
+    },
   },
 });
 
-export const {} = AgentSlice.actions;
+export const { setModels, setClothes } = AgentSlice.actions;
 
 export default AgentSlice.reducer;
